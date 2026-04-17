@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Gunakan batas untuk dataset NotreDame
 #define MAX_NODES 500000 
 
 struct Node {
@@ -40,7 +39,6 @@ struct Graph* createGraph(int vertices) {
 void addEdge(struct Graph* graph, int src, int dest) {
     if (src >= graph->numVertices || dest >= graph->numVertices) return;
 
-    // Tambahkan Edge (Directed sesuai format web-graph)
     struct Node* newNode = createNode(dest);
     newNode->next = graph->adjLists[src];
     graph->adjLists[src] = newNode;
@@ -84,7 +82,6 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // Bangun path: datasets/<nama_file>
     char filepath[256];
     snprintf(filepath, sizeof(filepath), "datasets/subgraph/%s", argv[1]);
 

@@ -3,6 +3,9 @@
 ##  Deskripsi
 Proyek ini berfokus pada implementasi algoritma **Breadth-First Search (BFS)** secara paralel menggunakan GPU. Tujuan utama dari proyek ini adalah untuk menganalisis bagaimana pemilihan **struktur data graph** mempengaruhi performa traversal pada arsitektur paralel.
 
+![Visualisasi Representasi Graph](./visualization/Visualisasi_Representasi_Graph.png)
+
+
 Tiga representasi graph yang dibandingkan dalam penelitian ini adalah:
 - Edge List  
 - CSR (Compressed Sparse Row)  
