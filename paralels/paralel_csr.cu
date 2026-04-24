@@ -81,9 +81,6 @@ void BFS_CSR_GPU(struct CSR* graph, int start) {
     cudaMemcpy(d_frontier, h_frontier, sizeof(int), cudaMemcpyHostToDevice);
     cudaMemcpy(d_size_frontier, &size_frontier, sizeof(int), cudaMemcpyHostToDevice);
 
-    int level = 0;
-
-
     while (size_frontier > 0) {
 
         int zero = 0;
@@ -104,8 +101,6 @@ void BFS_CSR_GPU(struct CSR* graph, int start) {
 
         cudaMemcpy(d_frontier, d_next_frontier, size_frontier*sizeof(int), cudaMemcpyDeviceToDevice);
         cudaMemcpy(d_size_frontier, &size_frontier, sizeof(int), cudaMemcpyHostToDevice);
-
-        level++;
     }
 
 
