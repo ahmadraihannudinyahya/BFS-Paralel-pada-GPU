@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define STEP 50000
+#define STEP 5000
 #define MAX_FILES 100
 
 int main(int argc, char* argv[]) {
@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
 
     for (int i = 0; i < numFiles; i++) {
         char filename[50];
-        sprintf(filename, "datasets/subgraph/dataset_%dK.txt", (i + 1) * 50);
+        sprintf(filename, "datasets/subgraph/dataset_%dK.txt", (i + 1) * 5);
         outs[i] = fopen(filename, "w");
     }
 
