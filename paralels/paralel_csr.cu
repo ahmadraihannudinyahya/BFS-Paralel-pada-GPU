@@ -33,9 +33,10 @@ __global__ void bfs_kernel(int *row_ptr, int *col_idx,
                            int *visited,
                            int *size_frontier, int *size_next) {
 
-    int tid = threadIdx.x;
+    int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    int stride = blockDim.x * gridDim.x;
 
-    for (int i = tid; i < *size_frontier; i += blockDim.x) {
+    for (int i = tid; i < *size_frontier; i += stride) {
 
         int u = frontier[i];
 
@@ -86,7 +87,11 @@ void BFS_CSR_GPU(struct CSR* graph, int start) {
         int zero = 0;
         cudaMemcpy(d_size_next, &zero, sizeof(int), cudaMemcpyHostToDevice);
 
-        bfs_kernel<<<1, 256>>>(
+        int blockSize = 256;
+        int blocks = (size_frontier + blockSize - 1) / blockSize;
+        if (blocks > 1024) blocks = 1024;
+
+        bfs_kernel<<<blocks, blockSize>>>(
             d_row_ptr, d_col_idx,
             d_frontier, d_next_frontier,
             d_visited,
