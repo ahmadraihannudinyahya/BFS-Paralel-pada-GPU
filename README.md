@@ -1,3 +1,12 @@
+Nama Anggota Kelompok:
+
+Ahmad Raihannudin Yahya - 01085230010
+Daniel Christofer Marvel - 01085230012
+Ferry Yoshua Sanaky - 01085250017
+Ilhand Aby Riano - 01085210010
+Kalena Yves Adiwinanda - 01085230014
+Matthew Kurniawan - 01087230002
+
 # BFS-Paralel-pada-GPU
 
 ##  Deskripsi
